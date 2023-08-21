@@ -1,9 +1,11 @@
+import { useAgeContext } from "../AgeCalculator";
 import "./SingleInput.css";
 
-const SingleInput = ({ type, name, error, data, setData }) => {
+const SingleInput = ({ type, name, placeholder, label }) => {
+    const { data, setData, error } = useAgeContext();
     return (
         <div className="input">
-            <label htmlFor={name}>{name}</label>
+            <label htmlFor={name}>{label}</label>
             <input
                 type={type}
                 id={name}
@@ -11,6 +13,7 @@ const SingleInput = ({ type, name, error, data, setData }) => {
                     setData({ ...data, [name]: e.target.value });
                 }}
                 value={data[name]}
+                placeholder={placeholder}
             />
             {error[name].isError && (
                 <span className="input__error">{error[name].text}</span>
