@@ -1,0 +1,46 @@
+.form__container {
+    padding: 1.5rem;
+}
+
+.input__container {
+    display: flex;
+    gap: 15px;
+}
+
+.input__submit {
+    position: relative;
+    margin: 32px 0;
+    padding: 32px 0;
+}
+
+.input__seperation {
+    height: 2px;
+    background-color: hsl(var(--clr-ntrl-lightGrey));
+    border: none;
+}
+
+.btn__submit {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.btn {
+    height: 64px;
+    width: 64px;
+    border: none;
+    background-color: hsla(var(--clr-primary-purple), 100%);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid hsl(var(--clr-primary-lightPurple));
+    transition: 0.3s background-color ease-in-out;
+}
+
+.btn:hover {
+    background-color: hsl(var(--clr-primary-lightPurple));
+}
+
+.btn img {
+    height: 24px;
+}

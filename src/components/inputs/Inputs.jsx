@@ -23,8 +23,8 @@ const Inputs = () => {
     };
 
     return (
-        <section>
-            <form className="form__container" onSubmit={handleOnSubmit}>
+        <section className="form__container">
+            <form className="form" onSubmit={handleOnSubmit}>
                 <div className="input__container">
                     {inputs.map((input) => {
                         return <SingleInput key={input.id} {...input} />;
@@ -32,11 +32,9 @@ const Inputs = () => {
                 </div>
                 <div className="input__submit">
                     <hr className="input__seperation" />
-                    <div className="btn">
-                        <button className="btn__submit" type="submit">
-                            <img src={downArrow} alt="submit button" />
-                        </button>
-                    </div>
+                    <button className="btn__submit btn" type="submit">
+                        <img src={downArrow} alt="submit button" />
+                    </button>
                 </div>
             </form>
         </section>

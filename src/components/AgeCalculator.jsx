@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import Inputs from "./inputs/Inputs";
 import DisplayInputs from "./displayInputs/DisplayInputs";
+import "./ageCalculator.css";
 
 // context
 const AgeContext = createContext();
@@ -34,9 +35,11 @@ const AgeCalculator = () => {
         <AgeContext.Provider
             value={{ error, setError, data, setData, age, setAge }}
         >
-            <div className="section__center age-calculator">
-                <Inputs />
-                <DisplayInputs />
+            <div className="section__center ">
+                <div className="age-calculator">
+                    <Inputs />
+                    <DisplayInputs />
+                </div>
             </div>
         </AgeContext.Provider>
     );

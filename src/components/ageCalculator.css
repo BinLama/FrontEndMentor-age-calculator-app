@@ -1,0 +1,17 @@
+body {
+    background-color: hsl(var(--clr-ntrl-offWhite));
+    font-family: var(--ff-primary);
+}
+
+.age-calculator {
+    background-color: hsl(var(--clr-ntrl-white));
+    margin: 1rem;
+    width: 100%;
+}
+
+.section__center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}

@@ -1,3 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap");
+
 :root {
-    --clr-primary-purple: hsl(259, 100%, 65%);
+    --clr-primary-purple: 259, 100%, 65%;
+    --clr-primary-lightPurple: 259, 83%, 61%;
+    --clr-primary-red: 0, 100%, 67%;
+
+    --clr-ntrl-white: 0, 0%, 100%;
+    --clr-ntrl-offWhite: 0, 0%, 94%;
+    --clr-ntrl-lightGrey: 0, 0%, 86%;
+    --clr-ntrl-smokeGrey: 0, 1%, 44%;
+    --clr-ntrl-black: 0, 0%, 8%;
+    --ff-primary: "Poppins", sans-serif;
 }
