@@ -13,7 +13,7 @@ export const checkErrors = (currError, data) => {
             day: {
                 isError: true,
                 type: "empty text",
-                text: "this field is required",
+                text: "This field is required",
             },
         };
     } else if (parseInt(data["day"]) < 1 || parseInt(data["day"]) > 31) {
@@ -23,7 +23,7 @@ export const checkErrors = (currError, data) => {
             day: {
                 isError: true,
                 type: "number out of bound",
-                text: "must be a valid day",
+                text: "Must be a valid day",
             },
         };
     } else {
@@ -42,7 +42,7 @@ export const checkErrors = (currError, data) => {
             month: {
                 isError: true,
                 type: "empty text",
-                text: "this field is required",
+                text: "This field is required",
             },
         };
     } else if (parseInt(data["month"]) < 1 || parseInt(data["month"]) > 12) {
@@ -52,7 +52,7 @@ export const checkErrors = (currError, data) => {
             month: {
                 isError: true,
                 type: "number out of bound",
-                text: "must be a valid month",
+                text: "Must be a valid month",
             },
         };
     } else {
@@ -73,7 +73,7 @@ export const checkErrors = (currError, data) => {
             year: {
                 isError: true,
                 type: "empty text",
-                text: "this field is required",
+                text: "This field is required",
             },
         };
     } else if (parseInt(data["year"]) > thisYear) {
@@ -83,7 +83,7 @@ export const checkErrors = (currError, data) => {
             year: {
                 isError: true,
                 type: "future year",
-                text: "must be in the past",
+                text: "Must be in the past",
             },
         };
     } else {
@@ -117,7 +117,7 @@ export const checkErrors = (currError, data) => {
                 day: {
                     isError: true,
                     type: "not a valid date",
-                    text: "must be a valid date",
+                    text: "Must be a valid date",
                 },
                 month: {
                     isError: true,
@@ -148,7 +148,7 @@ export const checkErrors = (currError, data) => {
                 day: {
                     isError: true,
                     type: "future date",
-                    text: "date must be in the present",
+                    text: "Date must be in the present",
                 },
                 month: {
                     isError: true,

@@ -1,18 +1,15 @@
+import { useEffect, useState } from "react";
 import { useAgeContext } from "../AgeCalculator";
 import "./displayInputs.css";
+import SingleValueDisplay from "./SingleValueDisplay";
 
 const DisplayInputs = () => {
     const { age } = useAgeContext();
 
     return (
-        <div>
+        <div className="age__container">
             {age.map((val) => {
-                return (
-                    <p className="age__display" key={val.label}>
-                        <span className="age_display-value">{val.value} </span>
-                        {val.label}
-                    </p>
-                );
+                return <SingleValueDisplay key={val.label} {...val} />;
             })}
         </div>
     );

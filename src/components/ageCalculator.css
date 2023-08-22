@@ -6,7 +6,12 @@ body {
 .age-calculator {
     background-color: hsl(var(--clr-ntrl-white));
     margin: 1rem;
+    max-width: 840px;
     width: 100%;
+
+    border-radius: 15px;
+    border-bottom-right-radius: 100px;
+    box-shadow: 1px 1px 10px hsla(var(--clr-ntrl-smokeGrey), 50%);
 }
 
 .section__center {

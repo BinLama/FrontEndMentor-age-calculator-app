@@ -11,4 +11,6 @@
     --clr-ntrl-smokeGrey: 0, 1%, 44%;
     --clr-ntrl-black: 0, 0%, 8%;
     --ff-primary: "Poppins", sans-serif;
+
+    --small-font: 0.625rem;
 }

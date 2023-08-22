@@ -1,5 +1,6 @@
 .form__container {
     padding: 1.5rem;
+    padding-bottom: 0;
 }
 
 .input__container {
@@ -34,13 +35,71 @@
     border-radius: 50%;
     cursor: pointer;
     border: 1px solid hsl(var(--clr-primary-lightPurple));
-    transition: 0.3s background-color ease-in-out;
+    transition: 0.3s all ease-in-out;
 }
 
 .btn:hover {
-    background-color: hsl(var(--clr-primary-lightPurple));
+    background-color: hsl(var(--clr-ntrl-black));
+    border-color: hsl(var(--clr-ntrl-black));
 }
 
 .btn img {
     height: 24px;
+}
+
+@media screen and (min-width: 475px) {
+    .form__container {
+        padding: 1.75rem 1.75rem 0 1.75rem;
+    }
+
+    .btn {
+        height: 70px;
+        width: 70px;
+    }
+
+    .btn img {
+        height: 30px;
+    }
+
+    .input__submit {
+        margin: 35px 0;
+        padding: 35px 0;
+    }
+
+    .input__container {
+        gap: 20px;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .form__container {
+        padding: 2rem 2rem 0 2rem;
+    }
+
+    .input__container {
+        gap: 24px;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    .input__submit {
+        margin: 0;
+        padding: 48px 0;
+    }
+
+    .btn__submit {
+        left: calc(100% - 48px);
+    }
+    .btn {
+        height: 96px;
+        width: 96px;
+    }
+
+    .btn img {
+        height: 46px;
+    }
+
+    .input__container {
+        gap: 32px;
+    }
 }

@@ -14,7 +14,7 @@ const SingleInput = ({ type, name, placeholder, label }) => {
                 }}
                 value={data[name]}
                 placeholder={placeholder}
-                className="error"
+                className={error[name].isError ? "error" : ""}
             />
             {error[name].isError && (
                 <span className="input__error">{error[name].text}</span>

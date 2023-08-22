@@ -7,21 +7,37 @@ input[type="number"] {
 
     border-radius: 8px;
     border: 1px solid hsl(var(--clr-ntrl-lightGrey));
-}
 
-input[type="number"] {
     -moz-appearance: textfield;
     appearance: textfield;
     margin: 0;
     padding: 15px;
-    font-size: 15px;
+
+    font-size: clamp(1rem, 0.493rem + 2.162vw, 1.5rem);
     font-weight: 700;
+
+    font-family: var(--ff-primary);
     outline: none;
     caret-color: hsl(var(--clr-primary-purple));
+    cursor: pointer;
+}
+
+@media screen and (min-width: 650px) {
+    input[type="number"] {
+        height: 60px;
+        padding: 20px;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    input[type="number"] {
+        height: 70px;
+        padding: 24px;
+    }
 }
 
 input[type="number"].error {
-    border: 1px solid red;
+    border: 1px solid hsl(var(--clr-primary-red));
 }
 
 input[type="number"]:focus {
@@ -41,10 +57,20 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .input label {
     text-transform: uppercase;
-    font-size: 9px;
+    font-size: var(--small-font);
     font-weight: 700;
     letter-spacing: 1.1px;
 
     margin-top: 28px;
     padding-bottom: 9px;
+}
+
+.input__error {
+    font-size: var(--small-font);
+    font-weight: 400;
+    font-style: italic;
+
+    margin-top: 5px;
+
+    color: hsl(var(--clr-primary-red));
 }
