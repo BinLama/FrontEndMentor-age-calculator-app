@@ -26,10 +26,10 @@ const SingleValueDisplay = (props) => {
     }, [value]);
 
     return (
-        <p className="age__display" key={label}>
+        <h1 className="age__display" key={label}>
             <span className="age__display-value">{age} </span>
             {label}
-        </p>
+        </h1>
     );
 };
 export default SingleValueDisplay;

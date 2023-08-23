@@ -7,11 +7,11 @@ const DisplayInputs = () => {
     const { age } = useAgeContext();
 
     return (
-        <div className="age__container">
+        <section className="age__container">
             {age.map((val) => {
                 return <SingleValueDisplay key={val.label} {...val} />;
             })}
-        </div>
+        </section>
     );
 };
 export default DisplayInputs;

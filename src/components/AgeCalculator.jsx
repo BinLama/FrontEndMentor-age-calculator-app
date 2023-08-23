@@ -35,12 +35,12 @@ const AgeCalculator = () => {
         <AgeContext.Provider
             value={{ error, setError, data, setData, age, setAge }}
         >
-            <div className="section__center ">
+            <main className="section__center ">
                 <div className="age-calculator">
                     <Inputs />
                     <DisplayInputs />
                 </div>
-            </div>
+            </main>
         </AgeContext.Provider>
     );
 };
