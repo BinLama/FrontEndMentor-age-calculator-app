@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useAgeContext } from "../AgeCalculator";
 import "./displayInputs.css";
 import SingleValueDisplay from "./SingleValueDisplay";
