@@ -135,13 +135,19 @@ export const checkErrors = (currError, data) => {
         }
 
         const day = new Date().getDate(),
-            month = new Date().getMonth(),
+            month = new Date().getMonth() + 1,
             year = new Date().getFullYear();
+        console.log(year, data["year"]);
+        console.log(month, data["month"]);
+        console.log(day, data["day"]);
 
         if (
-            parseInt(data["day"]) > day &&
-            parseInt(data["month"]) > month &&
-            parseInt(data["year"]) >= year
+            (parseInt(data["day"]) > day &&
+                parseInt(data["month"]) >= month &&
+                parseInt(data["year"]) >= year) ||
+            (parseInt(data["day"]) < day &&
+                parseInt(data["month"]) > month &&
+                parseInt(data["year"]) >= year)
         ) {
             newError = {
                 error: true,

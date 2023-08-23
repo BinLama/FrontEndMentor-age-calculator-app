@@ -1,37 +1,32 @@
 import { useState, useEffect } from "react";
 
-const SingleValueDisplay = ({ label, value }) => {
-    const [age, setAge] = useState(null);
+const SingleValueDisplay = (props) => {
+    const { label, value } = props;
+
+    const [age, setAge] = useState("0");
 
     useEffect(() => {
-        console.log("value", value);
-        setAge((_) => {
-            if (value === "--") {
-                return null;
-            }
-            return 0;
-        });
+        let start = 0;
+        if (value === "--") return setAge("--");
+
+        const end = parseInt(value);
+
+        if (start === end) return;
+
+        // find duration per increment
+        let totalMilSecDur = 2;
+        let incrementTime = (totalMilSecDur / end) * 1000;
+
+        let timer = setInterval(() => {
+            start += 1;
+            setAge(String(start));
+            if (start === end) clearInterval(timer);
+        }, incrementTime);
     }, [value]);
-
-    useEffect(() => {
-        const interval = setTimeout(() => {
-            if (age !== null) {
-                if (age != parseInt(value)) {
-                    setAge((curr) => {
-                        return curr + 1;
-                    });
-                }
-            }
-        }, 50);
-
-        return () => {
-            clearTimeout(interval);
-        };
-    }, [age]);
 
     return (
         <p className="age__display" key={label}>
-            <span className="age__display-value">{!age ? "--" : age} </span>
+            <span className="age__display-value">{age} </span>
             {label}
         </p>
     );
