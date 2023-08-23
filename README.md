@@ -1,22 +1,25 @@
 # Frontend Mentor - Age calculator app
 
-![Design preview for the Age calculator app coding challenge](./design/desktop-preview.jpg)
+This is a solution to the [Age calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/age-calculator-app-dF9DFFpj-Q). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+-   [Overview](#overview)
+    -   [The challenge](#the-challenge)
+    -   [Screenshot](#screenshot)
+    -   [Links](#links)
+-   [My process](#my-process)
+    -   [Built with](#built-with)
+    -   [What I learned](#what-i-learned)
+    -   [Continued development](#continued-development)
+-   [Useful resources](#useful-resources)
+-   [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a decent understanding of HTML, CSS and JavaScript.**
+### The challenge
 
-## The challenge
-
-Your challenge is to build out this age calculator app and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 -   View an age in years, months, and days after submitting a valid date through the form
 -   Receive validation errors if:
@@ -29,79 +32,83 @@ Your users should be able to:
 -   See hover and focus states for all interactive elements on the page
 -   **Bonus**: See the age numbers animate to their final number when the form is submitted
 
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+### Screenshot
 
-## Where to find everything
+**Desktop View**
+![](./screenshots/desktop-screenshot.png)
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design.
+**Mobile View**
+![](./screenshots/mobile-screenshot.png)
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`.
+### Links
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+-   [Solution Github](https://github.com/BinLama/FrontendMentor-age-calculator-app)
 
-All the required assets for this project are in the `/assets` folder. The images are already exported for the correct screen size and optimized.
+-   [Live Site](https://binlama.github.io/FrontendMentor-age-calculator-app/)
 
-We also include variable and static font files for the required fonts for this project. You can choose to either link to Google Fonts or use the local font files to host the fonts yourself. Note that we've removed the static font files for the font weights that aren't needed for this project.
+## My process
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+### Built with
 
-## Building your project
+-   React (useContext, useState, useEffect) - JS library
+-   CSS custom properties
+-   Flexbox
+-   Mobile-first workflow
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+### What I learned
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+##### First lesson
 
-## Deploying your project
+Biggest lesson that I learned was that when you are not sure when and what to update, using useEffect and setTimeout will make it hard to keep track of all the updates. I initialized useEffect and setTimeout as such:
 
-As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+```js
+useEffect(() => {
+    const interval = setTimeout(() => {
+        // do some calculation
+        // update age so that setTimeout is called again
+    }, 50);
 
--   [GitHub Pages](https://pages.github.com/)
--   [Vercel](https://vercel.com/)
--   [Netlify](https://www.netlify.com/)
+    return () => {
+        // cleaning timeout function so that I don't get bugs
+        clearTimeout(interval);
+    };
+}, [age]);
+```
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+However, I was getting infinite loops on updates where the value of age was 0. It made me realized that if I don't know when to clear the timeout, I am just guessing. So, when I searched online and found that I can control when to end with setInterval I decided to use it for animating numbers. The code that I used was as follows:
 
-## Create a custom `README.md`
+```js
+useEffect(() => {
+    const interval = setInterval(() => {
+        // do some calculation
+        // if some condition meet, clear the interval
+    }, 50);
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+    // only call interval when value has changed.
+}, [value]);
+```
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+This fixed my biggest bug, infinite updating of numbers.
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+##### Second lesson
 
-## Submitting your solution
+When making logic, make sure to clearly test your logic and if possible bring in other people to test your code even when all you have is just barebone structure.
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+There were times when I thought my age calculations worked but I realized that I was not doing it correctly when I started randomly inputing date and letting my family play with it. So, note for my future self is test your logic.
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+##### Continued development
 
-## Sharing your solution
+I want to work with more problems that require solving problems and not just design. I think I have a good grasp on following the design but calculating age was harder and took more time than styling with css.
 
-There are multiple places you can share your solution:
+In addition, I also want to learn tailwind css and see how I can use it on my projects.
 
-1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack).
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+### Useful resources
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback.
+-   [animating counter](https://dev.to/cooljasonmelton/building-an-animated-counter-with-react-and-css-59ee) - This helped me learn about animating number and also helped me realized that I was approaching the problem wrong.
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+-   [age calculation](https://stackoverflow.com/questions/7833709/calculating-age-in-months-and-days) - Learned how to calculate age
 
-## Got feedback for us?
+## Author
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
-
-## TODO:
-
--   [ ] style the input
--   [ ] remove the blue outline for input and add a new purple one.
+-   Frontend Mentor - [@BinLama](https://www.frontendmentor.io/profile/BinLama)
+-   Github - [@BinLama](https://github.com/BinLama)

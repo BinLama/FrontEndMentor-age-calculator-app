@@ -4,7 +4,7 @@ const SingleValueDisplay = (props) => {
     const { label, value } = props;
 
     const [age, setAge] = useState("0");
-    console.log(value);
+
     useEffect(() => {
         let start = 0;
         if (value === "--") return setAge("--");

@@ -35,12 +35,17 @@
     border-radius: 50%;
     cursor: pointer;
     border: 1px solid hsl(var(--clr-primary-lightPurple));
+    box-shadow: 1px 1px 10px hsla(var(--clr-ntrl-smokeGrey), 50%);
     transition: 0.3s all ease-in-out;
 }
 
 .btn:hover {
     background-color: hsl(var(--clr-ntrl-black));
     border-color: hsl(var(--clr-ntrl-black));
+}
+
+.btn:active {
+    margin-top: 5px;
 }
 
 .btn img {
